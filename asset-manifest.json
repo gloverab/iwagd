@@ -1,8 +1,10 @@
 {
-  "main.css": "static/css/main.7ef924be.css",
-  "main.css.map": "static/css/main.7ef924be.css.map",
-  "main.js": "static/js/main.95a4bc32.js",
-  "main.js.map": "static/js/main.95a4bc32.js.map",
+  "main.css": "static/css/main.14b8a161.css",
+  "main.css.map": "static/css/main.14b8a161.css.map",
+  "main.js": "static/js/main.e37a732e.js",
+  "main.js.map": "static/js/main.e37a732e.js.map",
+  "static/media/IWAGD-Album-1.jpg": "static/media/IWAGD-Album-1.dfc7840d.jpg",
   "static/media/arrow.svg": "static/media/arrow.9e72859d.svg",
-  "static/media/rectangle-2.png": "static/media/rectangle-2.82c58db8.png"
+  "static/media/rectangle-2.png": "static/media/rectangle-2.82c58db8.png",
+  "static/media/vinyl.png": "static/media/vinyl.e3662b39.png"
 }
