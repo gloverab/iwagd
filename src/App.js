@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PurchaseWrapper from './PurchaseWrapper';
 import Footer from './Footer';
 import { Tooltip } from 'react-tippy';
+import albumCover from './images/IWAGD-Album-1.jpg'
+import vinyl from './images/vinyl.png'
 import './App.css';
 import 'react-tippy/dist/tippy.css'
 
@@ -41,7 +43,12 @@ class App extends Component {
           <div className='landing' />
         </div>
         <div className={`ib purchase-wrapper-wrapper ${this.state.currentPage === 'preorder' ? 'expanded' : 'collapsed'}`}>
-          {this.state.currentPage === 'preorder' && <PurchaseWrapper />}
+          {this.state.currentPage === 'preorder' &&
+            <PurchaseWrapper
+              albumCover={albumCover}
+              vinyl={vinyl}
+            />
+          }
         </div>
         <Footer
           screenSize={this.state.screenSize}
