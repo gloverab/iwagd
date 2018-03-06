@@ -77,7 +77,10 @@ class Footer extends Component {
               }
             </div>}
           <div className='nav-pill ib'>
-            <h4 className='footer-nav'>PREORDER THE ALBUM</h4>
+            {this.props.currentPage === 'preorder' ?
+              <h4 className='footer-nav' id='landing' onClick={this.props.handlePageSwitch}>BACK TO HOME</h4>
+              :
+              <h4 className='footer-nav' id='preorder' onClick={this.props.handlePageSwitch}>PREORDER THE ALBUM</h4>}
           </div>
         </div>
       </div>
