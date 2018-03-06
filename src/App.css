@@ -1,0 +1,117 @@
+html {
+  background: url('./images/rectangle-2.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
+
+h2, h4 {
+  margin: 0;
+  font-weight: 400;
+}
+
+body {
+  font-family: 'Arimo', sans-serif;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+#root {
+  height: 100%;
+}
+
+.ib {
+  display: inline-block;
+}
+
+.App {
+  height: 100%;
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  height: 120px;
+  background-color: white;
+  bottom: 0;
+}
+
+.title {
+  height: 100%;
+  line-height: 120px;
+  margin-left: 40px;
+  font-size: 21px;
+  letter-spacing: 17.5px;
+  font-style: italic;
+  transition: 0.3s ease all;
+}
+
+.title.compress {
+  letter-spacing: 13px;
+}
+
+.nav {
+  position: absolute;
+  height: 100%;
+  line-height: 120px;
+  right: 0;
+}
+
+.footer-nav {
+  font-size: 14px;
+}
+
+.footer-nav:last-child {
+  margin-right: 60px;
+  margin-left: 40px;
+}
+
+.footer-nav:hover {
+  cursor: pointer;
+}
+
+.confirmed {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.email-field {
+  width: 400px;
+  border: none;
+  font-size: 14px;
+  margin-right: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+  text-transform: uppercase;
+  transition: 0.3s ease all;
+}
+
+.email-field.hidden {
+  width: 0;
+  opacity: 0;
+}
+
+.email-field.expanded {
+  width: 400px;
+}
+
+.email-field:focus {
+  outline: none;
+}
+
+.email-arrow {
+  height: 100%;
+}
+
+div.hit-box{
+    height:300vh;
+    width:300vw;
+    position:fixed;
+    top:-100vh;
+    left:-100vw;
+    z-index: 0;
+    cursor: auto;
+}
