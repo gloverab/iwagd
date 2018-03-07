@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Elements } from 'react-stripe-elements';
+import CheckoutForm from './CheckoutForm';
 import pin from './images/Blue-Hair.png';
 
 class PurchaseWrapper extends Component {
@@ -54,6 +56,9 @@ class PurchaseWrapper extends Component {
             <img src={pin} />
           </div>
         </div>
+        <Elements>
+          <CheckoutForm />
+        </Elements>
       </div>
     )
   }
