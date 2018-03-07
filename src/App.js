@@ -29,6 +29,9 @@ class App extends Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.setScreenSize)
+    if (isMobile) {
+      document.body.classList.add('locked')
+    }
     this.setState({
       images: [
         <img src={albumCover} alt='album cover' />
@@ -68,7 +71,7 @@ class App extends Component {
           <div className='mobile-center-wrap'>
             <div className={`bottom ${this.state.emailOut ? 'grow' : ''}`}>
               <div className={`mobile-email-wrapper ${this.state.emailOut ? 'grow' : ''}`}>
-                {!this.state.emailOut && <button className='btn big mobile' id='mobile-email-btn' onClick={this.onEmailClick}>DON'T LOSE TOUCH.</button>}
+                {!this.state.emailOut && <button className='btn big mobile' id='mobile-email-btn' onClick={this.onEmailClick}>DON'T LOSE TOUCH</button>}
                 {this.state.emailOut &&
                   <form className='mobile-email-form' onSubmit={this.handleEmailSubmit}>
                     <input
@@ -89,9 +92,9 @@ class App extends Component {
               </div>
               {!this.state.emailOut &&
                 <div className='social-wrapper'>
-                  <img src={spotifyIcon} alt='spotify icon' />
+                  {/* <img src={spotifyIcon} alt='spotify icon' />
                   <img src={appleIcon} alt='apple icon' />
-                  <img src={bandcampIcon} alt='bandcamp icon' />
+                  <img src={bandcampIcon} alt='bandcamp icon' /> */}
                   <img src={instaIcon} alt='instagram icon' />
                 </div>}
             </div>

@@ -33,6 +33,11 @@ body > #root > div {
   height: 100vh;
 }
 
+.locked {
+  overflow: hidden;
+  position: fixed;
+}
+
 
 div.hit-box{
   height:300vh;
@@ -381,19 +386,21 @@ div.hit-box{
 
 .mobile-header {
   position: absolute;
+  text-align: right;
   left: 5px;
-  bottom: 5px;
+  /* bottom: 5px; */
   font-style: italic;
   color: white;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  letter-spacing: 3vmax;
+  letter-spacing: 2.5vmax;
 }
 
 .mobile-center-wrap {
   width: 100%;
+  height: 100%;
   text-align: center;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .btn.big {
@@ -402,7 +409,7 @@ div.hit-box{
 }
 
 .bottom {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 150px;
   bottom: 0;
@@ -418,11 +425,15 @@ div.hit-box{
   color: black;
   position: relative;
   margin: 0 auto;
+  box-shadow: none;
+  border-radius: 0;
   -webkit-appearance: none;
 }
 
 .social-wrapper > img {
   margin: 10px;
+  /* TEMPORARY FOR GYBE SHOW */
+  margin-top: 20px;
 }
 
 .btn-arrow {
@@ -458,6 +469,7 @@ div.hit-box{
   margin-top: 40px;
   width: 100%;
   font-size: 16px;
+  border-radius: 0;
 }
 
 .mobile-email-form > .btn {
