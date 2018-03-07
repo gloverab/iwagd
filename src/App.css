@@ -393,6 +393,7 @@ div.hit-box{
 .mobile-center-wrap {
   width: 100%;
   text-align: center;
+  overflow-x: hidden;
 }
 
 .btn.big {
@@ -417,6 +418,7 @@ div.hit-box{
   color: black;
   position: relative;
   margin: 0 auto;
+  -webkit-appearance: none;
 }
 
 .social-wrapper > img {
@@ -441,7 +443,7 @@ div.hit-box{
 .mobile-email-wrapper.grow {
   height: 100%;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
 }
 
 .mobile-email-form {
@@ -452,9 +454,10 @@ div.hit-box{
 }
 
 .mobile-email-form > .email-field {
-  text-align: center;
+  /* text-align: center; */
   margin-top: 40px;
   width: 100%;
+  font-size: 16px;
 }
 
 .mobile-email-form > .btn {

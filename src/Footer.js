@@ -87,7 +87,7 @@ class Footer extends Component {
                     id='email-input'
                     className={`ib email-field ${this.props.emailOut ? 'expanded' : 'hidden'}`}
                     onChange={this.handleEmailInput}
-                    placeholder='EMAIL@EMAIL.COM'
+                    placeholder='YOU@EMAIL.COM'
                     value={this.state.email}
                     onSubmit={this.handleEmailSubmit}
                     autoFocus

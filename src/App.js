@@ -60,10 +60,8 @@ class App extends Component {
   }
 
   render() {
-    // const isMobile = true
-
     return (
-      <div className="App" id='app'>
+      <div className={`App ${isMobile ? 'mobile' : ''}`} id='app'>
         {(this.state.emailOut || this.state.submittedEmail) && <div className='hit-box' onClick={this.onEmailClick} />}
         {isMobile && <h2 className='mobile-header'>IT WAS A GOOD DREAM</h2>}
         {isMobile &&
@@ -78,7 +76,7 @@ class App extends Component {
                       id='email-input'
                       className={`ib email-field`}
                       onChange={this.handleEmailInput}
-                      placeholder='EMAIL@EMAIL.COM'
+                      placeholder='YOU@EMAIL.COM'
                       value={this.state.email}
                       onSubmit={this.handleEmailSubmit}
                       autoFocus
@@ -89,12 +87,13 @@ class App extends Component {
                     />
                   </form>}
               </div>
-              <div className='social-wrapper'>
-                <img src={spotifyIcon} alt='spotify icon' />
-                <img src={appleIcon} alt='apple icon' />
-                <img src={bandcampIcon} alt='bandcamp icon' />
-                <img src={instaIcon} alt='instagram icon' />
-              </div>
+              {!this.state.emailOut &&
+                <div className='social-wrapper'>
+                  <img src={spotifyIcon} alt='spotify icon' />
+                  <img src={appleIcon} alt='apple icon' />
+                  <img src={bandcampIcon} alt='bandcamp icon' />
+                  <img src={instaIcon} alt='instagram icon' />
+                </div>}
             </div>
           </div>
         }
