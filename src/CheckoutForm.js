@@ -41,7 +41,7 @@ class CheckoutForm extends Component {
               {this.props.lineItems.map(lineItem => (
                 lineItem.qty > 0 &&
                 <tr className='line-item'>
-                  <td className='w70'><h4 className='thin'>{lineItem.name}{lineItem.qty > 1 ? ` - x${lineItem.qty}` : ''}</h4></td>
+                  <td className='w70'><h4 className='thin'>{lineItem.name}{lineItem.qty > 1 ? ` - qty. ${lineItem.qty}` : ''}</h4></td>
                   <td className='w20'>
                     <h4 className='ib'>
                       {`$${lineItem.price * lineItem.qty}.00`}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PurchaseWrapper from './PurchaseWrapper';
 import Footer from './Footer';
 import { Tooltip } from 'react-tippy';
-import albumCover from './images/IWAGD-Album-1.jpg'
+import albumCover from './images/album-art-350px.jpg'
 import vinyl from './images/vinyl.png'
 import { StripeProvider } from 'react-stripe-elements';
 import './App.css';
