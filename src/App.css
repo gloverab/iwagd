@@ -1,6 +1,15 @@
-h1, h2, h4 {
+h1, h2, h4, h5 {
   margin: 0;
   font-weight: 400;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+p {
+  margin: 5px 0;
+  font-size: 14px;
 }
 
 body {
@@ -36,6 +45,44 @@ body > #root > div {
 .ib {
   display: inline-block;
 }
+
+.one-third {
+  width: 33%;
+}
+
+.two-thirds {
+  width: 60%;
+  margin-right: 6%;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.btn {
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  background-color: black;
+  color: white;
+  height: 35px;
+}
+
+.btn.mid {
+  width: 120px;
+}
+
+
+.btn:hover {
+  cursor: pointer;
+}
+
+
 
 .purchase-wrapper-wrapper {
   position: absolute;
@@ -128,6 +175,15 @@ body > #root > div {
   height: 100%;
 }
 
+.arrow-wrapper {
+  padding: 0 5px;
+  transition: 0.3s ease all;
+}
+
+.arrow-wrapper:hover {
+  cursor: pointer;
+}
+
 div.hit-box{
     height:300vh;
     width:300vw;
@@ -138,11 +194,38 @@ div.hit-box{
     cursor: auto;
 }
 
-.vinyl-wrapper {
-  width: 330px;
+.album-wrapper {
+  width: 400px;
   position: relative;
   margin: 0 auto;
   margin-top: 100px;
+}
+
+.vinyl-wrapper {
+  position: relative;
+  width: 280px;
+  height: 320px;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+.product-details {
+  position: relative;
+  width: 430px;
+  margin: 0 auto;
+}
+
+.add-to-cart {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.title-and-price {
+  width: 100%;
+}
+
+.track-list {
+  margin-bottom: 18px;
 }
 
 .vinyl-roll {
@@ -151,23 +234,23 @@ div.hit-box{
 }
 
 .album-cover {
-  width: 330px;
+  width: 280px;
   z-index: 2;
   right: 0;
 }
 
 .album-cover.shift {
-  right: 90px;
+  right: 80px;
 }
 
 .vinyl {
   top: 5px;
-  width: 320px;
+  width: 270px;
   z-index: 1;
   left: 0;
 }
 
 .vinyl.shift {
-  left: 90px;
+  left: 80px;
   transform: rotate(30deg);
 }
