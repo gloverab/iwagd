@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import arrow from './images/arrow.svg'
+import albumCover from './images/IWAGD-Album-1.jpg'
 
 class Footer extends Component {
   constructor(props) {
@@ -10,9 +11,39 @@ class Footer extends Component {
       email: '',
     }
 
+    this.showAlbum = this.showAlbum.bind(this)
+    this.hideAlbum = this.hideAlbum.bind(this)
     this.onEmailClick = this.onEmailClick.bind(this)
     this.handleEmailInput = this.handleEmailInput.bind(this)
     this.handleEmailSubmit = this.handleEmailSubmit.bind(this)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentPage !== this.props.currentPage) {
+      this.setState({
+        emailOut: false,
+        showAlbum: false,
+      })
+    }
+  }
+
+  showAlbum() {
+    this.setState({
+      showAlbum: true,
+    }, () => {
+      setTimeout(() => {
+        this.setState({
+          albumRise: true
+        })
+      }, 50)
+    })
+  }
+
+  hideAlbum() {
+    this.setState({
+      albumRise: false,
+      showAlbum: false,
+    })
   }
 
   onEmailClick(e) {
@@ -43,6 +74,9 @@ class Footer extends Component {
     const { screenSize } = this.props
     return (
       <div className='footer'>
+        {this.state.showAlbum && <div className={`hover-album ${this.state.albumRise ? 'rise' : ''} ${this.state.albumSpread ? 'spread' : ''}`}>
+          <img src={albumCover} alt='album cover' />
+        </div>}
         {(this.state.emailOut || this.state.submittedEmail) && <div className='hit-box' onClick={this.onEmailClick} />}
         <h2 className={`title ib ${this.state.emailOut ? 'compress' : ''}`}>{screenSize > 1000 && !this.state.submittedEmail ? 'IT WAS A GOOD DREAM' : 'IWAGD'}</h2>
 
@@ -80,7 +114,12 @@ class Footer extends Component {
             {this.props.currentPage === 'preorder' ?
               <h4 className='footer-nav' id='landing' onClick={this.props.handlePageSwitch}>BACK TO HOME</h4>
               :
-              <h4 className='footer-nav' id='preorder' onClick={this.props.handlePageSwitch}>PREORDER THE ALBUM</h4>}
+              <h4
+                className='footer-nav'
+                id='preorder'
+                onMouseEnter={this.showAlbum}
+                onMouseLeave={this.hideAlbum}
+                onClick={this.props.handlePageSwitch}>PREORDER THE ALBUM</h4>}
           </div>
         </div>
       </div>

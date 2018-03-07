@@ -43,6 +43,17 @@ body > #root > div {
   height: 100vh;
 }
 
+
+div.hit-box{
+  height:300vh;
+  width:300vw;
+  position:fixed;
+  top:-100vh;
+  left:-100vw;
+  z-index: 0;
+  cursor: auto;
+}
+
 .ib {
   display: inline-block;
 }
@@ -234,14 +245,30 @@ body > #root > div {
   cursor: pointer;
 }
 
-div.hit-box{
-    height:300vh;
-    width:300vw;
-    position:fixed;
-    top:-100vh;
-    left:-100vw;
-    z-index: 0;
-    cursor: auto;
+.hover-album {
+  position: absolute;
+  width: 0;
+  height: 0;
+  width: 200px;
+  right: 40px;
+  bottom: 100px;
+  background-color: blue;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: .3s ease all;
+}
+
+.hover-album.rise {
+  height: 200px;
+  transition: .3s ease all;
+}
+
+.hover-album.spread {
+
+}
+
+.hover-album > img {
+  width: 100%;
+  height: 100%;
 }
 
 .album-wrapper {
@@ -316,6 +343,8 @@ div.hit-box{
 .pin-details {
   margin-top: 20px;
 }
+
+
 
 .checkout-form {
   position: fixed;
