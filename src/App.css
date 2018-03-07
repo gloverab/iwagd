@@ -427,7 +427,6 @@ div.hit-box{
   margin: 0 auto;
   box-shadow: none;
   border-radius: 0;
-  -webkit-appearance: none;
 }
 
 .social-wrapper > img {
@@ -454,7 +453,6 @@ div.hit-box{
 .mobile-email-wrapper.grow {
   height: 100%;
   width: 100%;
-  border-radius: 10px 10px 0 0;
 }
 
 .mobile-email-form {
@@ -474,4 +472,5 @@ div.hit-box{
 
 .mobile-email-form > .btn {
   margin-top: 40px;
+  -webkit-appearance: none;
 }
