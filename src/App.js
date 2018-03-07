@@ -4,6 +4,7 @@ import Footer from './Footer';
 import { Tooltip } from 'react-tippy';
 import albumCover from './images/IWAGD-Album-1.jpg'
 import vinyl from './images/vinyl.png'
+import { StripeProvider } from 'react-stripe-elements';
 import './App.css';
 import 'react-tippy/dist/tippy.css'
 
@@ -44,10 +45,12 @@ class App extends Component {
         </div>
         <div className={`ib purchase-wrapper-wrapper ${this.state.currentPage === 'preorder' ? 'expanded' : 'collapsed'}`}>
           {this.state.currentPage === 'preorder' &&
-            <PurchaseWrapper
-              albumCover={albumCover}
-              vinyl={vinyl}
-            />
+            <StripeProvider apiKey="test_key_3vil_p3ngu1n_so_rand0m_lol">
+              <PurchaseWrapper
+                albumCover={albumCover}
+                vinyl={vinyl}
+              />
+            </StripeProvider>
           }
         </div>
         <Footer

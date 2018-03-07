@@ -17,5 +17,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://gloverab.github.io/iwagd"
+  "homepage": "https://gloverab.github.io/iwagd",
+  "devDependencies": {
+    "react-stripe-elements": "^1.6.0"
+  }
 }
