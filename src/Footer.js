@@ -13,7 +13,6 @@ class Footer extends Component {
 
     this.showAlbum = this.showAlbum.bind(this)
     this.hideAlbum = this.hideAlbum.bind(this)
-    this.onEmailClick = this.onEmailClick.bind(this)
     this.handleEmailInput = this.handleEmailInput.bind(this)
     this.handleEmailSubmit = this.handleEmailSubmit.bind(this)
   }
@@ -46,16 +45,6 @@ class Footer extends Component {
     })
   }
 
-  onEmailClick(e) {
-    const emailOut = !this.state.emailOut
-    const emailInput = document.getElementById('email-input')
-    if (emailOut && emailInput) { emailInput.focus() }
-    this.setState({
-      submittedEmail: '',
-      emailOut
-    })
-  }
-
   handleEmailInput(e) {
     this.setState({
       email: e.currentTarget.value
@@ -75,28 +64,28 @@ class Footer extends Component {
     return (
       <div className='footer'>
         {this.state.showAlbum && <div className={`hover-album ${this.state.albumRise ? 'rise' : ''} ${this.state.albumSpread ? 'spread' : ''}`}>
-          <img src={albumCover} alt='album cover' />
+          {this.props.images[0]}
         </div>}
-        {(this.state.emailOut || this.state.submittedEmail) && <div className='hit-box' onClick={this.onEmailClick} />}
-        <h2 className={`title ib ${this.state.emailOut ? 'compress' : ''}`}>{screenSize > 1000 && !this.state.submittedEmail ? 'IT WAS A GOOD DREAM' : 'IWAGD'}</h2>
+        {(this.props.emailOut || this.props.submittedEmail) && <div className='hit-box' onClick={this.props.onEmailClick} />}
+        <h2 className={`title ib ${this.props.emailOut ? 'compress' : ''}`}>{screenSize > 1000 && !this.props.submittedEmail ? 'IT WAS A GOOD DREAM' : 'IWAGD'}</h2>
 
         <div className='nav ib'>
-          {this.state.submittedEmail ?
+          {this.props.submittedEmail ?
             <span className='confirmed'>Congratulations. A confirmaion email has been sent to {this.state.submittedEmail}</span>
             :
             <div className='nav-pill ib'>
-              {!this.state.emailOut &&
+              {!this.props.emailOut &&
                 <h4
                   className='ib footer-nav email-signup'
-                  onClick={this.onEmailClick}
+                  onClick={this.props.onEmailClick}
                 >
-                  EMAIL SIGNUP
+                  DON'T LOSE TOUCH.
                 </h4>}
                 <form className='ib' onSubmit={this.handleEmailSubmit}>
                   <input
                     type='text'
                     id='email-input'
-                    className={`ib email-field ${this.state.emailOut ? 'expanded' : 'hidden'}`}
+                    className={`ib email-field ${this.props.emailOut ? 'expanded' : 'hidden'}`}
                     onChange={this.handleEmailInput}
                     placeholder='EMAIL@EMAIL.COM'
                     value={this.state.email}
@@ -104,7 +93,7 @@ class Footer extends Component {
                     autoFocus
                   />
                 </form>
-              {this.state.emailOut &&
+              {this.props.emailOut &&
                 <div className='arrow-wrapper ib' onClick={this.handleEmailSubmit}>
                   <img className='email-arrow' src={arrow} alt='arrow' />
                 </div>
@@ -119,7 +108,7 @@ class Footer extends Component {
                 id='preorder'
                 onMouseEnter={this.showAlbum}
                 onMouseLeave={this.hideAlbum}
-                onClick={this.props.handlePageSwitch}>PREORDER THE ALBUM</h4>}
+                onClick={this.props.handlePageSwitch}>PREORDER VINYL</h4>}
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@
   "dependencies": {
     "gh-pages": "^1.1.0",
     "react": "^16.2.0",
+    "react-device-detect": "^0.1.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1",
     "react-scroll": "^1.7.7",
