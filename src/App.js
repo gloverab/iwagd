@@ -103,11 +103,10 @@ class App extends Component {
         {isMobile && <h2 className='mobile-header'>IT WAS A GOOD DREAM</h2>}
         {isMobile &&
           <div className='mobile-center-wrap'>
-            <div id='email-invalid'>hi</div>
             <div className={`bottom ${this.state.emailOut ? 'grow' : ''}`}>
               <div className={`mobile-email-wrapper ${this.state.emailOut ? 'grow' : ''}`}>
                 {!this.state.emailOut && <button className='btn big mobile' id='mobile-email-btn' onClick={this.onEmailClick}>DON'T LOSE TOUCH</button>}
-                  <form id='gform' className='mobile-email-form' onSubmit={this.handleEmailSubmit}>
+                  {this.state.emailOut && <form id='gform' className='mobile-email-form' onSubmit={this.handleEmailSubmit}>
                     <input
                       type='email'
                       id='email-input'
@@ -122,7 +121,7 @@ class App extends Component {
                     type='submit'
                     className='btn full'
                     />
-                  </form>
+                  </form>}
               </div>
               {!this.state.emailOut &&
                 <div className='social-wrapper'>
