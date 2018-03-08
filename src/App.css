@@ -34,8 +34,9 @@ body > #root > div {
 }
 
 .locked {
-  overflow: hidden;
+  /* overflow: hidden; */
   position: fixed;
+  z-index: 0;
 }
 
 
@@ -385,7 +386,6 @@ div.hit-box{
 
 
 .mobile-header {
-  position: absolute;
   text-align: right;
   left: 5px;
   /* bottom: 5px; */
@@ -394,6 +394,7 @@ div.hit-box{
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   letter-spacing: 2.5vmax;
+  z-index: 10;
 }
 
 .mobile-center-wrap {
@@ -429,7 +430,11 @@ div.hit-box{
   border-radius: 0;
 }
 
-.social-wrapper > img {
+.social-wrapper {
+  margin-top: 20px;
+}
+
+.social-wrapper > a{
   margin: 10px;
   /* TEMPORARY FOR GYBE SHOW */
   margin-top: 20px;

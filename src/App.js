@@ -25,6 +25,8 @@ class App extends Component {
     this.onEmailClick = this.onEmailClick.bind(this)
     this.setScreenSize = this.setScreenSize.bind(this)
     this.handlePageSwitch = this.handlePageSwitch.bind(this)
+    this.handleEmailInput = this.handleEmailInput.bind(this)
+    this.handleEmailSubmit = this.handleEmailSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -62,40 +64,72 @@ class App extends Component {
     })
   }
 
+  handleEmailInput(e) {
+    this.setState({
+      email: e.currentTarget.value
+    })
+  }
+
+  handleEmailSubmit(e) {
+    e.preventDefault()
+    const submittedEmail = document.getElementById('email-input').value
+    var url = "https://script.google.com/macros/s/AKfycbzWlbq9PlJzHHvr8Ehu-kMVoqxqS5xUVewkX-Dnv2Tm5CihKqxa/exec"
+    var xhr = new XMLHttpRequest()
+    var data = { email: submittedEmail }
+    xhr.open('POST', url);
+    // xhr.withCredentials = true;
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        console.log( xhr.status, xhr.statusText )
+        console.log(xhr.responseText);
+        // document.getElementById("thankyou_message").style.display = "block";
+        return;
+    };
+    // url encode form data for sending as post data
+    var encoded = Object.keys(data).map(function(k) {
+        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k])
+    }).join('&')
+    xhr.send(encoded);
+    this.setState({
+      submittedEmail,
+      email: '',
+    })
+  }
+
   render() {
     return (
-      <div className={`App ${isMobile ? 'mobile' : ''}`} id='app'>
+      <div className={`App ${isMobile ? 'locked' : ''}`} id='app'>
         {(this.state.emailOut || this.state.submittedEmail) && <div className='hit-box' onClick={this.onEmailClick} />}
         {isMobile && <h2 className='mobile-header'>IT WAS A GOOD DREAM</h2>}
         {isMobile &&
           <div className='mobile-center-wrap'>
+            <div id='email-invalid'>hi</div>
             <div className={`bottom ${this.state.emailOut ? 'grow' : ''}`}>
               <div className={`mobile-email-wrapper ${this.state.emailOut ? 'grow' : ''}`}>
                 {!this.state.emailOut && <button className='btn big mobile' id='mobile-email-btn' onClick={this.onEmailClick}>DON'T LOSE TOUCH</button>}
-                {this.state.emailOut &&
-                  <form className='mobile-email-form' onSubmit={this.handleEmailSubmit}>
+                  <form id='gform' className='mobile-email-form' onSubmit={this.handleEmailSubmit}>
                     <input
-                      type='text'
+                      type='email'
                       id='email-input'
+                      name='email'
                       className={`ib email-field`}
                       onChange={this.handleEmailInput}
                       placeholder='YOU@EMAIL.COM'
                       value={this.state.email}
-                      onSubmit={this.handleEmailSubmit}
                       autoFocus
                     />
                   <input
                     type='submit'
                     className='btn full'
                     />
-                  </form>}
+                  </form>
               </div>
               {!this.state.emailOut &&
                 <div className='social-wrapper'>
                   {/* <img src={spotifyIcon} alt='spotify icon' />
                   <img src={appleIcon} alt='apple icon' />
                   <img src={bandcampIcon} alt='bandcamp icon' /> */}
-                  <img src={instaIcon} alt='instagram icon' />
+                  <a href='instagram://user?username=itwasagooddream'><img src={instaIcon}  alt='instagram icon' /></a>
                 </div>}
             </div>
           </div>
