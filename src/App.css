@@ -248,7 +248,7 @@ div.hit-box{
   opacity: 0;
 }
 .email-field-wrapper.expanded input {
-  width: 400px;
+  width: 350px;
 }
 
 .email-field-wrapper.hidden button {
@@ -256,19 +256,15 @@ div.hit-box{
   opacity: 0;
 }
 
-
 .email-field-wrapper button {
-  visibility: hidden;
-}
-.email-field-wrapper button:after {
-  content:'→';
-  visibility: visible;
-  display: block;
-  position: absolute;
-  background-color: none;
-  font-size: 24px;
-  padding: 5px;
-  top: 40px;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  background-color: black;
+  color: white;
+  height: 35px;
+  width: 120px;
 }
 
 .simple-form-wrapper {
