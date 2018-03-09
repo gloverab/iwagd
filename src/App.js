@@ -10,9 +10,10 @@ import spotifyIcon from './images/spotify-icon-rgb-white.svg';
 import appleIcon from './images/shape.svg';
 import bandcampIcon from './images/bandcamp-icon.png';
 import instaIcon from './images/3-layers.svg';
-import arrow from './images/arrow.svg'
+import arrow from './images/arrow.svg';
+import MailchimpSubscribe from "react-mailchimp-subscribe";
 import './App.css';
-import 'react-tippy/dist/tippy.css'
+import 'react-tippy/dist/tippy.css';
 
 class App extends Component {
   constructor(props) {
@@ -97,6 +98,9 @@ class App extends Component {
   }
 
   render() {
+    const url = "https://birdlabrecords.us17.list-manage.com/subscribe/post?u=5f414c713408a33c6eddaac3f&id=f9ce0dc3ce"
+    const SimpleForm = () => <MailchimpSubscribe url={url}/>
+
     return (
       <div className={`App ${isMobile ? 'locked' : ''}`} id='app'>
         {(this.state.emailOut || this.state.submittedEmail) && <div className='hit-box' onClick={this.onEmailClick} />}
@@ -106,22 +110,7 @@ class App extends Component {
             <div className={`bottom ${this.state.emailOut ? 'grow' : ''}`}>
               <div className={`mobile-email-wrapper ${this.state.emailOut ? 'grow' : ''}`}>
                 {!this.state.emailOut && <button className='btn big mobile' id='mobile-email-btn' onClick={this.onEmailClick}>DON'T LOSE TOUCH</button>}
-                  {this.state.emailOut && <form id='gform' className='mobile-email-form' onSubmit={this.handleEmailSubmit}>
-                    <input
-                      type='email'
-                      id='email-input'
-                      name='email'
-                      className={`ib email-field`}
-                      onChange={this.handleEmailInput}
-                      placeholder='YOU@EMAIL.COM'
-                      value={this.state.email}
-                      autoFocus
-                    />
-                  <input
-                    type='submit'
-                    className='btn full'
-                    />
-                  </form>}
+                {this.state.emailOut && SimpleForm()}
               </div>
               {!this.state.emailOut &&
                 <div className='social-wrapper'>

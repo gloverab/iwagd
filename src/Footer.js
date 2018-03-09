@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import arrow from './images/arrow.svg'
 import albumCover from './images/IWAGD-Album-1.jpg'
+import MailchimpSubscribe from "react-mailchimp-subscribe";
 
 class Footer extends Component {
   constructor(props) {
@@ -61,6 +62,9 @@ class Footer extends Component {
 
   render() {
     const { screenSize } = this.props
+    const url = "https://birdlabrecords.us17.list-manage.com/subscribe/post?u=5f414c713408a33c6eddaac3f&id=f9ce0dc3ce"
+    const SimpleForm = () => <MailchimpSubscribe url={url}/>
+
     return (
       <div className='footer'>
         {this.state.showAlbum && <div className={`hover-album ${this.state.albumRise ? 'rise' : ''} ${this.state.albumSpread ? 'spread' : ''}`}>
@@ -79,7 +83,7 @@ class Footer extends Component {
                   className='ib footer-nav email-signup'
                   onClick={this.props.onEmailClick}
                 >
-                  DON'T LOSE TOUCH.
+                  DON'T LOSE TOUCH
                 </h4>}
                 <form className='ib' onSubmit={this.handleEmailSubmit}>
                   <input

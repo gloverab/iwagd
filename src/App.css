@@ -460,22 +460,41 @@ div.hit-box{
   width: 100%;
 }
 
-.mobile-email-form {
+.mobile-email-wrapper.grow > div {
   width: 80%;
   display: block;
   position: relative;
   margin: 0 auto;
 }
 
-.mobile-email-form > .email-field {
-  /* text-align: center; */
-  margin-top: 40px;
+.mobile-email-wrapper.grow > div > input {
+  margin-top: 50px;
   width: 100%;
   font-size: 16px;
   border-radius: 0;
+  box-shadow: none;
+  border: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid black;
 }
 
-.mobile-email-form > .btn {
+.mobile-email-wrapper.grow > div > input:focus {
+  outline: none;
+}
+
+.mobile-email-wrapper.grow > div > button {
   margin-top: 40px;
   -webkit-appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  background-color: black;
+  color: white;
+  height: 35px;
+  width: 100%;
+}
+
+.mobile-email-wrapper.grow > div > button:focus {
+  outline: none;
 }
