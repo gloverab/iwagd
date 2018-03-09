@@ -63,7 +63,7 @@ class Footer extends Component {
   render() {
     const { screenSize } = this.props
     const url = "https://birdlabrecords.us17.list-manage.com/subscribe/post?u=5f414c713408a33c6eddaac3f&id=f9ce0dc3ce"
-    const SimpleForm = () => <MailchimpSubscribe url={url}/>
+    const SimpleForm = () => <MailchimpSubscribe url={url} className='green' />
 
     return (
       <div className='footer'>
@@ -85,23 +85,14 @@ class Footer extends Component {
                 >
                   DON'T LOSE TOUCH
                 </h4>}
-                <form className='ib' onSubmit={this.handleEmailSubmit}>
-                  <input
-                    type='text'
-                    id='email-input'
-                    className={`ib email-field ${this.props.emailOut ? 'expanded' : 'hidden'}`}
-                    onChange={this.handleEmailInput}
-                    placeholder='YOU@EMAIL.COM'
-                    value={this.state.email}
-                    onSubmit={this.handleEmailSubmit}
-                    autoFocus
-                  />
+                <form className={`ib email-field-wrapper ${this.props.emailOut ? 'expanded' : 'hidden'}`}>
+                  {SimpleForm()}
                 </form>
-              {this.props.emailOut &&
+              {/*this.props.emailOut &&
                 <div className='arrow-wrapper ib' onClick={this.handleEmailSubmit}>
                   <img className='email-arrow' src={arrow} alt='arrow' />
                 </div>
-              }
+              */}
             </div>}
           <div className='nav-pill ib'>
             {this.props.currentPage === 'preorder' ?

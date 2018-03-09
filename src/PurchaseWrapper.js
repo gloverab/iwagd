@@ -3,6 +3,7 @@ import { Elements } from 'react-stripe-elements';
 import * as Scroll from 'react-scroll';
 import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import CheckoutForm from './CheckoutForm';
+import PaymentPage from './PaymentPage';
 import pin from './images/Blue-Hair.png';
 
 class PurchaseWrapper extends Component {
@@ -16,6 +17,7 @@ class PurchaseWrapper extends Component {
     }
 
     this.addToCart = this.addToCart.bind(this)
+    this.handleCheckoutSubmit = this.handleCheckoutSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -35,11 +37,29 @@ class PurchaseWrapper extends Component {
     }, scroll.scrollTo(100))
   }
 
+  handleCheckoutSubmit(e) {
+    e.preventDefault()
+    this.setState({
+      currentPage: 'checkout',
+    })
+  }
+
+  setTotal(total) {
+    this.setState({
+      total
+    })
+  }
+
   render() {
     const showCheckout = this.state.lineItems.filter(item => item.qty > 0).length > 0
+    let total = 0
+    this.state.lineItems.forEach(item => {
+      total += item.qty * item.price
+    })
+
     return (
       <div className='purchase-wrapper'>
-        <div className='album-wrapper'>
+        {this.state.currentPage !== 'checkout' && <div className='album-wrapper'>
           <div className='vinyl-wrapper'>
             <img src={this.props.albumCover} alt='album-cover' className={`ib vinyl-roll album-cover ${this.state.rollVinyl ? 'shift' : ''}`} />
             <img src={this.props.vinyl} alt='vinyl' className={`ib vinyl-roll vinyl ${this.state.rollVinyl ? 'shift' : ''}`} />
@@ -52,8 +72,8 @@ class PurchaseWrapper extends Component {
             </div>
             <div className='two-thirds'>
               <p>1. Forgetting How To Speak</p>
-              <p>2. Words Escape. Voices Emerge.</p>
-              <p>3. Grig.</p>
+              <p>2. Words Dissolve, Your Voice Wanders</p>
+              <p>3. falling/running/mute</p>
               <p>4. You Left a Letter and a Song.</p>
               <p>5. A Blistering Reminder of Why You Are Where You Are</p>
             </div>
@@ -71,7 +91,7 @@ class PurchaseWrapper extends Component {
                   onClick={this.addToCart}
                 >
                   {this.state.lineItems.filter(item => item.name === 'vinyl' && item.qty > 0).length > 0 ?
-                    'Add Another' : 'Add To Cart'}
+                    'ADD ANOTHER' : 'ADD TO CART'}
                 </button>
               </div>
             </div>
@@ -92,19 +112,27 @@ class PurchaseWrapper extends Component {
                   onClick={this.addToCart}
                 >
                   {this.state.lineItems.filter(item => item.name === 'pin' && item.qty > 0).length > 0 ?
-                    'Add Another' : 'Add To Cart'}
+                    'ADD ANOTHER' : 'ADD TO CART'}
                 </button>
               </div>
             </div>
           </div>
-        </div>
+        </div>}
 
         <Elements>
           <CheckoutForm
             showCheckout={showCheckout}
             lineItems={this.state.lineItems}
+            handleCheckoutSubmit={this.handleCheckoutSubmit}
+            total={total}
           />
         </Elements>
+
+        {this.state.currentPage === 'checkout' &&
+          <PaymentPage
+            total={total}
+          />
+        }
         }
       </div>
     )

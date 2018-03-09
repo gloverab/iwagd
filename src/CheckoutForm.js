@@ -28,11 +28,6 @@ class CheckoutForm extends Component {
   }
 
   render() {
-    let total = 0
-
-    this.props.lineItems.forEach(item => {
-      total += item.qty * item.price
-    })
     return (
       <div className={`checkout-form ${this.props.showCheckout ? 'expanded' : 'collapsed'}`}>
         {this.state.showContent &&
@@ -59,13 +54,14 @@ class CheckoutForm extends Component {
               </tr>
               <tr className='total-line-item total-line'>
                 <td className='w70'><h3>TOTAL</h3></td>
-                <td className='w30'><h3>{`$${total}.00`}</h3></td>
+                <td className='w30'><h3>{`$${this.props.total}.00`}</h3></td>
               </tr>
             </table>
             <input
               type="submit"
               value="CHECKOUT"
               className="btn full checkout"
+              onClick={this.props.handleCheckoutSubmit}
             />
         </div>}
       </div>

@@ -228,6 +228,57 @@ div.hit-box{
   outline: none;
 }
 
+.email-field-wrapper input {
+  width: 400px;
+  border: none;
+  font-size: 14px;
+  margin-right: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+  text-transform: uppercase;
+  transition: 0.2s ease all;
+}
+
+.email-field-wrapper input:focus {
+  outline: none;
+}
+
+.email-field-wrapper.hidden input {
+  width: 0;
+  opacity: 0;
+}
+.email-field-wrapper.expanded input {
+  width: 400px;
+}
+
+.email-field-wrapper.hidden button {
+  width: 0;
+  opacity: 0;
+}
+
+
+.email-field-wrapper button {
+  visibility: hidden;
+}
+.email-field-wrapper button:after {
+  content:'→';
+  visibility: visible;
+  display: block;
+  position: absolute;
+  background-color: none;
+  font-size: 24px;
+  padding: 5px;
+  top: 40px;
+}
+
+.simple-form-wrapper {
+  width: 0;
+}
+
+.simple-form-wrapper.hidden {
+  width: 0;
+}
+
 .email-arrow {
   height: 100%;
 }
@@ -497,4 +548,24 @@ div.hit-box{
 
 .mobile-email-wrapper.grow > div > button:focus {
   outline: none;
+}
+
+.payment-page {
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  position: absolute;
+  top: 0;
+  text-align: center;
+}
+
+.checkout-options {
+  margin-top: 200px;
+}
+
+.paypal-wrapper {
+  width:300px;
+  margin: 0 auto;
+  margin-top: 30px;
+
 }
