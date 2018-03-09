@@ -17,6 +17,7 @@ class PurchaseWrapper extends Component {
     }
 
     this.addToCart = this.addToCart.bind(this)
+    this.removeItem = this.removeItem.bind(this)
     this.handleCheckoutSubmit = this.handleCheckoutSubmit.bind(this)
   }
 
@@ -35,6 +36,14 @@ class PurchaseWrapper extends Component {
     this.setState({
       lineItems
     }, scroll.scrollTo(100))
+  }
+
+  removeItem(e) {
+    const { lineItems } = this.state
+    lineItems[e.currentTarget.dataset.i].qty -= 1
+    this.setState({
+      lineItems
+    })
   }
 
   handleCheckoutSubmit(e) {
@@ -123,6 +132,7 @@ class PurchaseWrapper extends Component {
           <CheckoutForm
             showCheckout={showCheckout}
             lineItems={this.state.lineItems}
+            removeItem={this.removeItem}
             handleCheckoutSubmit={this.handleCheckoutSubmit}
             total={total}
           />

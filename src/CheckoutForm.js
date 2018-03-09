@@ -12,6 +12,7 @@ class CheckoutForm extends Component {
       showContent: false,
     }
   }
+
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.stripe.createToken({
@@ -33,7 +34,7 @@ class CheckoutForm extends Component {
         {this.state.showContent &&
           <div>
             <table className='full checkout-table'>
-              {this.props.lineItems.map(lineItem => (
+              {this.props.lineItems.map((lineItem, i) => (
                 lineItem.qty > 0 &&
                 <tr className='line-item'>
                   <td className='w70'><h4 className='thin'>{lineItem.name}{lineItem.qty > 1 ? ` - qty. ${lineItem.qty}` : ''}</h4></td>
@@ -42,7 +43,13 @@ class CheckoutForm extends Component {
                       {`$${lineItem.price * lineItem.qty}.00`}
                     </h4>
                   </td>
-                  <td><img src={x} className='ib box' /></td>
+                  <td>
+                    <img
+                      src={x}
+                      className='ib box'
+                      data-i={i}
+                      onClick={this.props.removeItem} />
+                  </td>
                 </tr>
               ))}
             </table>

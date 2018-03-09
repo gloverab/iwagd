@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>bandcamp logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Landing-Email-Click-Desktop" transform="translate(-1310.000000, -843.000000)" fill="#FFFFFF">
+            <g id="links" transform="translate(1173.000000, 843.000000)">
+                <g id="bandcamp-logo" transform="translate(137.000000, 0.000000)">
+                    <path d="M21,41.5 C9.67816263,41.5 0.5,32.3218374 0.5,21 C0.5,9.67816263 9.67816263,0.5 21,0.5 C32.3218374,0.5 41.5,9.67816263 41.5,21 C41.5,32.3218374 32.3218374,41.5 21,41.5 Z M21,40.5 C31.7695526,40.5 40.5,31.7695526 40.5,21 C40.5,10.2304474 31.7695526,1.5 21,1.5 C10.2304474,1.5 1.5,10.2304474 1.5,21 C1.5,31.7695526 10.2304474,40.5 21,40.5 Z" id="Oval" fill-rule="nonzero"></path>
+                    <polygon id="angle" points="16.8809493 14.4954937 10 27.2192 25.1190507 27.2192 31.999862 14.4954937"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

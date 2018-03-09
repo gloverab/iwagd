@@ -8,7 +8,7 @@ import { StripeProvider } from 'react-stripe-elements';
 import {BrowserView, MobileView, isBrowser, isMobile} from 'react-device-detect'
 import spotifyIcon from './images/spotify-icon-rgb-white.svg';
 import appleIcon from './images/shape.svg';
-import bandcampIcon from './images/bandcamp-icon.png';
+import bandcampIcon from './images/bandcamp-logo.svg';
 import instaIcon from './images/3-layers.svg';
 import arrow from './images/arrow.svg';
 import MailchimpSubscribe from "react-mailchimp-subscribe";
@@ -100,6 +100,21 @@ class App extends Component {
   render() {
     const url = "https://birdlabrecords.us17.list-manage.com/subscribe/post?u=5f414c713408a33c6eddaac3f&id=f9ce0dc3ce"
     const SimpleForm = () => <MailchimpSubscribe url={url}/>
+    const socialLinks = () =>
+      <div className='social-wrapper'>
+        <a href='https://open.spotify.com/artist/3ib3FBBRjLNrucyXI6Jt6o?si=qU8KXG7SQD21Yf0pXwhm6Q' target='blank'>
+          <img src={spotifyIcon} alt='spotify icon' />
+        </a>
+        <a href='https://itunes.apple.com/us/album/forgetting-how-to-speak-single/1356458807' target='blank'>
+          <img src={appleIcon} alt='apple icon' />
+        </a>
+        <a href='http://itwasagooddream.bandcamp.com' target='blank'>
+          <img src={bandcampIcon} alt='bandcamp icon' />
+        </a>
+        <a href='instagram://user?username=itwasagooddream' target='blank'>
+          <img src={instaIcon}  alt='instagram icon' />
+        </a>
+      </div>
 
     return (
       <div className={`App ${isMobile ? 'locked' : ''}`} id='app'>
@@ -112,13 +127,7 @@ class App extends Component {
                 {!this.state.emailOut && <button className='btn big mobile' id='mobile-email-btn' onClick={this.onEmailClick}>DON'T LOSE TOUCH</button>}
                 {this.state.emailOut && SimpleForm()}
               </div>
-              {!this.state.emailOut &&
-                <div className='social-wrapper'>
-                  {/* <img src={spotifyIcon} alt='spotify icon' />
-                  <img src={appleIcon} alt='apple icon' />
-                  <img src={bandcampIcon} alt='bandcamp icon' /> */}
-                  <a href='instagram://user?username=itwasagooddream'><img src={instaIcon}  alt='instagram icon' /></a>
-                </div>}
+              {!this.state.emailOut && socialLinks()}
             </div>
           </div>
         }
@@ -134,6 +143,10 @@ class App extends Component {
             </StripeProvider>
           }
         </div>
+        {!isMobile &&
+          <div className='social-wrapper-wrapper'>
+            {socialLinks()}
+          </div>}
         {!isMobile && <Footer
           images={this.state.images}
           onEmailClick={this.onEmailClick}

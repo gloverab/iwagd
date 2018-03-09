@@ -39,7 +39,6 @@ body > #root > div {
   z-index: 0;
 }
 
-
 div.hit-box{
   height:300vh;
   width:300vw;
@@ -122,6 +121,14 @@ div.hit-box{
 
 .btn:hover {
   cursor: pointer;
+}
+
+button {
+  transition: .3s ease all;
+}
+
+button:hover {
+  background-color: #b085f2;
 }
 
 .purchase-wrapper {
@@ -247,6 +254,12 @@ div.hit-box{
   width: 0;
   opacity: 0;
 }
+
+.email-field-wrapper.expanded .form-wrapper {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+}
+
 .email-field-wrapper.expanded input {
   width: 350px;
 }
@@ -265,6 +278,12 @@ div.hit-box{
   color: white;
   height: 35px;
   width: 120px;
+  text-transform: uppercase;
+}
+
+.email-field-wrapper button:hover {
+  background-color: #b085f2;
+  cursor: pointer;
 }
 
 .simple-form-wrapper {
@@ -477,14 +496,23 @@ div.hit-box{
   border-radius: 0;
 }
 
+.social-wrapper-wrapper {
+  position: absolute;
+  bottom: 140px;
+  right: 5px;
+}
+
 .social-wrapper {
   margin-top: 20px;
 }
 
-.social-wrapper > a{
+.social-wrapper > a {
   margin: 10px;
-  /* TEMPORARY FOR GYBE SHOW */
   margin-top: 20px;
+}
+
+.social-wrapper img {
+  max-width: 29px;
 }
 
 .btn-arrow {

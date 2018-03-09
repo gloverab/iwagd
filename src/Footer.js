@@ -86,7 +86,9 @@ class Footer extends Component {
                   DON'T LOSE TOUCH
                 </h4>}
                 <form className={`ib email-field-wrapper ${this.props.emailOut ? 'expanded' : 'hidden'}`}>
-                  {SimpleForm()}
+                  <div className='form-wrapper'>
+                    {SimpleForm()}
+                  </div>
                 </form>
 
                 {/*<form className='ib' onSubmit={this.handleEmailSubmit}>
