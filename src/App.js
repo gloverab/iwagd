@@ -118,6 +118,11 @@ class App extends Component {
 
     return (
       <div className={`App ${isMobile ? 'locked' : ''}`} id='app'>
+        <div class="video-background">
+          <div class="video-foreground">
+            <iframe src="https://www.youtube.com/embed/7D8nz15PlR8?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=7D8nz15PlR8" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
         {(this.state.emailOut || this.state.submittedEmail) && <div className='hit-box' onClick={this.onEmailClick} />}
         {isMobile && <h2 className='mobile-header'>IT WAS A GOOD DREAM</h2>}
         {isMobile &&
