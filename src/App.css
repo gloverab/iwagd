@@ -108,15 +108,22 @@ div.hit-box{
   height: 35px;
 }
 
+.btn:focus {
+  outline: none;
+}
+
 .btn.mid {
   width: 120px;
 }
 
 .btn.checkout {
-  background-color: #b085f2;
   position: absolute;
   width: 300px;
   bottom: 10px;
+}
+
+.btn.checkout:hover {
+  background-color: #b085f2;
 }
 
 .btn:hover {
@@ -125,6 +132,10 @@ div.hit-box{
 
 button {
   transition: .3s ease all;
+}
+
+button:focus {
+  outline: none;
 }
 
 button:hover {
@@ -256,7 +267,7 @@ button:hover {
 }
 
 .email-field-wrapper.expanded .form-wrapper {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
   padding: 0 20px;
 }
 
@@ -315,7 +326,7 @@ button:hover {
   right: 40px;
   bottom: 100px;
   background-color: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: .3s ease all;
 }
 
@@ -414,7 +425,7 @@ button:hover {
   right: 0;
   top: 200px;
   background-color: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: .2s ease all;
   z-index: 5;
 }

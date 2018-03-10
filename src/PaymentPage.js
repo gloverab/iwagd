@@ -19,7 +19,7 @@ class PaymentPage extends Component {
       return actions.payment.create({
         transactions: [
           {
-            amount: { total: this.props.total, currency: 'USD' }
+            amount: { total: this.props.total + 5, currency: 'USD' }
           }
         ]
       });

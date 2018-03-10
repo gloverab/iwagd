@@ -49,7 +49,7 @@ class PurchaseWrapper extends Component {
   handleCheckoutSubmit(e) {
     e.preventDefault()
     this.setState({
-      currentPage: 'checkout',
+      currentPage: this.state.currentPage === 'checkout' ? '' : 'checkout',
     })
   }
 
@@ -134,6 +134,7 @@ class PurchaseWrapper extends Component {
             lineItems={this.state.lineItems}
             removeItem={this.removeItem}
             handleCheckoutSubmit={this.handleCheckoutSubmit}
+            paymentPage={this.state.currentPage === 'checkout'}
             total={total}
           />
         </Elements>

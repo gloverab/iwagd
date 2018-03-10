@@ -61,13 +61,13 @@ class CheckoutForm extends Component {
               </tr>
               <tr className='total-line-item total-line'>
                 <td className='w70'><h3>TOTAL</h3></td>
-                <td className='w30'><h3>{`$${this.props.total}.00`}</h3></td>
+                <td className='w30'><h3>{`$${this.props.total + 5}.00`}</h3></td>
               </tr>
             </table>
             <input
               type="submit"
-              value="CHECKOUT"
-              className="btn full checkout"
+              value={this.props.paymentPage ? 'EDIT CART' : 'CHECKOUT'}
+              className="btn full checkout edit"
               onClick={this.props.handleCheckoutSubmit}
             />
         </div>}

@@ -111,7 +111,7 @@ class App extends Component {
         <a href='http://itwasagooddream.bandcamp.com' target='blank'>
           <img src={bandcampIcon} alt='bandcamp icon' />
         </a>
-        <a href='instagram://user?username=itwasagooddream' target='blank'>
+        <a href='https://www.instagram.com/itwasagooddream/' target='blank'>
           <img src={instaIcon}  alt='instagram icon' />
         </a>
       </div>
@@ -143,7 +143,7 @@ class App extends Component {
             </StripeProvider>
           }
         </div>
-        {!isMobile &&
+        {!isMobile && this.state.currentPage === 'landing' &&
           <div className='social-wrapper-wrapper'>
             {socialLinks()}
           </div>}
