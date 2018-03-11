@@ -20,7 +20,7 @@ body {
   -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: antialiased;
 	font-smoothing: antialiased;
-  background: url('./images/rectangle-2.png') no-repeat center center fixed;
+  background: url('https://i.imgur.com/AcdSG1Q.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -33,6 +33,16 @@ body {
 
 body > #root > div {
   height: 100vh;
+}
+
+.image-overlay-wrapper {
+  width: 100%;
+  height: 100%;
+  background: url('https://i.imgur.com/AcdSG1Q.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .video-background {
@@ -621,10 +631,26 @@ button:hover {
   margin-top: 30px;
 }
 
-@media (min-aspect-ratio: 16/9) {
+.audio-control-wrapper {
+  position: absolute;
+  bottom: 140px;
+  left: 50px;
+  width: 100px;
+}
+
+.audio-control {
+  width: 29px;
+  filter: invert(100%)
+}
+
+.audio-control {
+  fill: white;
+}
+
+@media (min-aspect-ratio: 14/9) {
   .video-foreground { height: 300%; top: -100%; }
 }
-@media (max-aspect-ratio: 16/9) {
+@media (max-aspect-ratio: 14/9) {
   .video-foreground { width: 300%; left: -100%; }
 }
 @media all and (max-width: 600px) {

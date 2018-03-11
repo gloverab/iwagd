@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactAudioPlayer from 'react-audio-player';
 import PurchaseWrapper from './PurchaseWrapper';
 import Footer from './Footer';
 import { Tooltip } from 'react-tippy';
@@ -10,19 +11,27 @@ import spotifyIcon from './images/spotify-icon-rgb-white.svg';
 import appleIcon from './images/shape.svg';
 import bandcampIcon from './images/bandcamp-logo.svg';
 import instaIcon from './images/3-layers.svg';
+import soundOn from './images/noun_1583080_cc.svg';
+import soundOff from './images/noun_1583083_cc.svg';
 import arrow from './images/arrow.svg';
+import intro from './audio/glitchy-vid-aud.mp3'
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import './App.css';
-import 'react-tippy/dist/tippy.css';
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       screenSize: window.innerWidth,
-      currentPage: 'landing'
+      currentPage: 'landing',
+      audioMuted: false,
+      overlayImage: true,
     }
 
+    this.playFirst = this.playFirst.bind(this)
+    this.playSecond = this.playSecond.bind(this)
+    this.toggleAudio = this.toggleAudio.bind(this)
+    this.hideOverlay = this.hideOverlay.bind(this)
     this.onEmailClick = this.onEmailClick.bind(this)
     this.setScreenSize = this.setScreenSize.bind(this)
     this.handlePageSwitch = this.handlePageSwitch.bind(this)
@@ -40,6 +49,7 @@ class App extends Component {
         <img src={albumCover} alt='album cover' />
       ]
     })
+    setTimeout(this.hideOverlay, 2000)
   }
 
   setScreenSize(e) {
@@ -97,6 +107,24 @@ class App extends Component {
     })
   }
 
+  playFirst() {
+    this.firstAud.audioEl.currentTime = 0;
+    this.firstAud.audioEl.play();
+  }
+
+  playSecond() {
+    this.secondAud.audioEl.currentTime = 0;
+    this.secondAud.audioEl.play();
+  }
+
+  toggleAudio() {
+    this.setState({ audioMuted: !this.state.audioMuted})
+  }
+
+  hideOverlay() {
+    this.setState({ overlayImage: false })
+  }
+
   render() {
     const url = "https://birdlabrecords.us17.list-manage.com/subscribe/post?u=5f414c713408a33c6eddaac3f&id=f9ce0dc3ce"
     const SimpleForm = () => <MailchimpSubscribe url={url}/>
@@ -118,11 +146,14 @@ class App extends Component {
 
     return (
       <div className={`App ${isMobile ? 'locked' : ''}`} id='app'>
-        <div class="video-background">
-          <div class="video-foreground">
-            <iframe src="https://www.youtube.com/embed/7D8nz15PlR8?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=7D8nz15PlR8" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
+        {!isMobile &&
+          <div className="video-background">
+            <div className="video-foreground">
+              <iframe
+                src="https://www.youtube.com/embed/7D8nz15PlR8?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=7D8nz15PlR8" />
+            </div>
+          </div>}
+        {/* this.state.overlayImage && <div className='image-overlay-wrapper' />*/}
         {(this.state.emailOut || this.state.submittedEmail) && <div className='hit-box' onClick={this.onEmailClick} />}
         {isMobile && <h2 className='mobile-header'>IT WAS A GOOD DREAM</h2>}
         {isMobile &&
@@ -136,8 +167,6 @@ class App extends Component {
             </div>
           </div>
         }
-
-
         <div className={`ib purchase-wrapper-wrapper ${this.state.currentPage === 'preorder' ? 'expanded' : 'collapsed'}`}>
           {this.state.currentPage === 'preorder' &&
             <StripeProvider apiKey="test_key_3vil_p3ngu1n_so_rand0m_lol">
@@ -148,6 +177,31 @@ class App extends Component {
             </StripeProvider>
           }
         </div>
+        {!isMobile &&
+          <div className='audio-control-wrapper'>
+            <img
+              src={this.state.audioMuted ? soundOn : soundOff}
+              onClick={this.toggleAudio}
+              className='audio-control'
+            />
+          </div>
+        }
+        <ReactAudioPlayer
+          src={intro}
+          muted={this.state.audioMuted}
+          listenInterval={57000}
+          onListen={this.playSecond}
+          autoPlay
+          ref={(e) => { this.firstAud = e; }}
+        />
+        <ReactAudioPlayer
+          src={intro}
+          muted={this.state.audioMuted}
+          listenInterval={57000}
+          onListen={this.playFirst}
+          autoPlay={false}
+          ref={(e) => { this.secondAud = e; }}
+        />
         {!isMobile && this.state.currentPage === 'landing' &&
           <div className='social-wrapper-wrapper'>
             {socialLinks()}
