@@ -83,7 +83,7 @@ class PurchaseWrapper extends Component {
               <p>1. Forgetting How To Speak</p>
               <p>2. Words Dissolve, Your Voice Wanders</p>
               <p>3. falling/running/mute</p>
-              <p>4. You Left a Letter and a Song.</p>
+              <p>4. You Left a Letter and a Song</p>
               <p>5. A Blistering Reminder of Why You Are Where You Are</p>
             </div>
 

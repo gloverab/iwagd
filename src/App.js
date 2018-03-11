@@ -50,6 +50,9 @@ class App extends Component {
       ]
     })
     setTimeout(this.hideOverlay, 2000)
+    setTimeout(() => {
+      this.setState({ overlayActivated: true })
+    }, 100)
   }
 
   setScreenSize(e) {
@@ -146,6 +149,16 @@ class App extends Component {
 
     return (
       <div className={`App ${isMobile ? 'locked' : ''}`} id='app'>
+        {this.state.overlayImage &&
+          <div className='image-overlay-wrapper-wrapper'>
+            <div className={`image-overlay-wrapper ${this.state.overlayActivated ? 'activated' : ''}`}>
+              <video autoPlay loop>
+                <source src='http://s1.webmshare.com/ZjgWq.webm' type='video/webm' />
+              </video>
+            </div>
+          </div>
+        }
+
         {!isMobile &&
           <div className="video-background">
             <div className="video-foreground">
@@ -153,7 +166,7 @@ class App extends Component {
                 src="https://www.youtube.com/embed/7D8nz15PlR8?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=7D8nz15PlR8" />
             </div>
           </div>}
-        {/* this.state.overlayImage && <div className='image-overlay-wrapper' />*/}
+
         {(this.state.emailOut || this.state.submittedEmail) && <div className='hit-box' onClick={this.onEmailClick} />}
         {isMobile && <h2 className='mobile-header'>IT WAS A GOOD DREAM</h2>}
         {isMobile &&
