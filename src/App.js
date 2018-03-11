@@ -49,9 +49,16 @@ class App extends Component {
         <img src={albumCover} alt='album cover' />
       ]
     })
-    setTimeout(this.hideOverlay, 2000)
+    const timeOut = isMobile ? 1000 : 4000
+    setTimeout(this.hideOverlay, timeOut)
     setTimeout(() => {
       this.setState({ overlayActivated: true })
+      setTimeout(() => {
+        this.setState({ overlayActivated: false })
+      }, 4000)
+    }, 100)
+    setTimeout(() => {
+      this.setState({ mobileRaised: true })
     }, 100)
   }
 
@@ -149,15 +156,13 @@ class App extends Component {
 
     return (
       <div className={`App ${isMobile ? 'locked' : ''}`} id='app'>
-        {this.state.overlayImage &&
-          <div className='image-overlay-wrapper-wrapper'>
-            <div className={`image-overlay-wrapper ${this.state.overlayActivated ? 'activated' : ''}`}>
-              <video autoPlay loop>
-                <source src='http://s1.webmshare.com/ZjgWq.webm' type='video/webm' />
-              </video>
-            </div>
-          </div>
-        }
+        <div className={`image-overlay-wrapper-wrapper ${!this.state.overlayImage ? 'hidden' : ''}`}>
+          {!isMobile && <div className={`image-overlay-wrapper ${!this.state.overlayActivated ? 'deactivated' : 'activated'}`}>
+            <video autoPlay loop>
+              <source src='https://giant.gfycat.com/SimilarUnderstatedGiraffe.webm' type='video/webm' />
+            </video>
+          </div>}
+        </div>
 
         {!isMobile &&
           <div className="video-background">
@@ -168,7 +173,7 @@ class App extends Component {
           </div>}
 
         {(this.state.emailOut || this.state.submittedEmail) && <div className='hit-box' onClick={this.onEmailClick} />}
-        {isMobile && <h2 className='mobile-header'>IT WAS A GOOD DREAM</h2>}
+        {isMobile && <h2 className={`mobile-header ${this.state.mobileRaised ? '' : 'out-of-frame'}`}>IT WAS A GOOD DREAM</h2>}
         {isMobile &&
           <div className='mobile-center-wrap'>
             <div className={`bottom ${this.state.emailOut ? 'grow' : ''}`}>
