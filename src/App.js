@@ -30,6 +30,7 @@ class App extends Component {
 
     this.playFirst = this.playFirst.bind(this)
     this.playSecond = this.playSecond.bind(this)
+    this.trackMouse = this.trackMouse.bind(this)
     this.toggleAudio = this.toggleAudio.bind(this)
     this.hideOverlay = this.hideOverlay.bind(this)
     this.onEmailClick = this.onEmailClick.bind(this)
@@ -88,6 +89,12 @@ class App extends Component {
   handleEmailInput(e) {
     this.setState({
       email: e.currentTarget.value
+    })
+  }
+
+  trackMouse(e) {
+    this.setState({
+      blurAmount: (e.currentTarget.offsetHeight - e.clientY) * .02
     })
   }
 
@@ -157,7 +164,7 @@ class App extends Component {
     return (
       <div className={`App ${isMobile ? 'locked' : ''}`} id='app'>
         <div className={`image-overlay-wrapper-wrapper ${!this.state.overlayImage ? 'hidden' : ''}`}>
-          {!isMobile && <div className={`image-overlay-wrapper ${!this.state.overlayActivated ? 'deactivated' : 'activated'}`}>
+          {!isMobile && <div onMouseMove={this.trackMouse} className={`image-overlay-wrapper ${!this.state.overlayActivated ? 'deactivated' : 'activated'}`}>
             <video autoPlay loop>
               <source src='https://giant.gfycat.com/SimilarUnderstatedGiraffe.webm' type='video/webm' />
             </video>
@@ -167,13 +174,13 @@ class App extends Component {
         {!isMobile &&
           <div className="video-background">
             <div className="video-foreground">
-              <iframe
+              <iframe style={{filter: `blur(${this.state.blurAmount}px)`}} id='iframe-vid'
                 src="https://www.youtube.com/embed/7D8nz15PlR8?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=7D8nz15PlR8" />
             </div>
           </div>}
 
         {(this.state.emailOut || this.state.submittedEmail) && <div className='hit-box' onClick={this.onEmailClick} />}
-        {isMobile && <h2 className={`mobile-header ${this.state.mobileRaised ? '' : 'out-of-frame'}`}>IT WAS A GOOD DREAM</h2>}
+        {isMobile && <h2 data-text='IT WAS A GOOD DREAM' className={`mobile-header ${this.state.mobileRaised ? '' : 'out-of-frame'} example-one`}>IT WAS A GOOD DREAM</h2>}
         {isMobile &&
           <div className='mobile-center-wrap'>
             <div className={`bottom ${this.state.emailOut ? 'grow' : ''}`}>
@@ -204,22 +211,26 @@ class App extends Component {
             />
           </div>
         }
-        <ReactAudioPlayer
-          src={intro}
-          muted={this.state.audioMuted}
-          listenInterval={57000}
-          onListen={this.playSecond}
-          autoPlay
-          ref={(e) => { this.firstAud = e; }}
-        />
-        <ReactAudioPlayer
-          src={intro}
-          muted={this.state.audioMuted}
-          listenInterval={57000}
-          onListen={this.playFirst}
-          autoPlay={false}
-          ref={(e) => { this.secondAud = e; }}
-        />
+        {!isMobile &&
+          <div>
+            <ReactAudioPlayer
+              src={intro}
+              muted={this.state.audioMuted}
+              listenInterval={57000}
+              onListen={this.playSecond}
+              autoPlay
+              ref={(e) => { this.firstAud = e; }}
+            />}
+            <ReactAudioPlayer
+              src={intro}
+              muted={this.state.audioMuted}
+              listenInterval={57000}
+              onListen={this.playFirst}
+              autoPlay={false}
+              ref={(e) => { this.secondAud = e; }}
+            />
+          </div>
+        }
         {!isMobile && this.state.currentPage === 'landing' &&
           <div className='social-wrapper-wrapper'>
             {socialLinks()}

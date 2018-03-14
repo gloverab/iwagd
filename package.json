@@ -27,6 +27,7 @@
   },
   "homepage": "http://itwasagooddream.com",
   "devDependencies": {
+    "compass-importer": "^0.4.1",
     "flow-bin": "^0.67.1",
     "react-stripe-elements": "^1.6.0"
   }
