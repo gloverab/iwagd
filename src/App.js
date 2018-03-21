@@ -93,9 +93,10 @@ class App extends Component {
   }
 
   trackMouse(e) {
-    this.setState({
-      blurAmount: (e.currentTarget.offsetHeight - e.clientY) * .02
-    })
+    // leaving out for now
+    // this.setState({
+    //   blurAmount: (e.currentTarget.offsetHeight - e.clientY) * .02
+    // })
   }
 
   handleEmailSubmit(e) {
@@ -164,7 +165,7 @@ class App extends Component {
     return (
       <div className={`App ${isMobile ? 'locked' : ''}`} id='app'>
         <div className={`image-overlay-wrapper-wrapper ${!this.state.overlayImage ? 'hidden' : ''}`}>
-          {!isMobile && <div onMouseMove={this.trackMouse} className={`image-overlay-wrapper ${!this.state.overlayActivated ? 'deactivated' : 'activated'}`}>
+          {!isMobile && <div className={`image-overlay-wrapper ${!this.state.overlayActivated ? 'deactivated' : 'activated'}`}>
             <video autoPlay loop>
               <source src='https://giant.gfycat.com/SimilarUnderstatedGiraffe.webm' type='video/webm' />
             </video>
@@ -174,7 +175,7 @@ class App extends Component {
         {!isMobile &&
           <div className="video-background">
             <div className="video-foreground">
-              <iframe style={{filter: `blur(${this.state.blurAmount}px)`}} id='iframe-vid'
+              <iframe id='iframe-vid'
                 src="https://www.youtube.com/embed/7D8nz15PlR8?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=7D8nz15PlR8" />
             </div>
           </div>}
