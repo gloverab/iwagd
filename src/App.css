@@ -818,7 +818,7 @@ button:hover {
 }
 
 .audio-control-wrapper:hover > .audio-control {
-  filter: invert(0);
+  width: 31px;
 }
 
 

@@ -80,11 +80,11 @@ class PurchaseWrapper extends Component {
               <h3 className='ib right'>$20.00</h3>
             </div>
             <div className='two-thirds'>
-              <p>1. Forgetting How To Speak</p>
-              <p>2. Words Dissolve, Your Voice Wanders</p>
-              <p>3. falling/running/mute</p>
-              <p>4. You Left a Letter and a Song</p>
-              <p>5. A Blistering Reminder of Why You Are Where You Are</p>
+              <p>1. Forgetting How To Speak - 3:07</p>
+              <p>2. Words Dissolve, Your Voice Wanders - 8:32</p>
+              <p>3. falling/running/mute - 2:41</p>
+              <p>4. You Left a Letter and a Song - 6:02</p>
+              <p>5. A Blistering Reminder of Why You Are Where You Are - 7:51</p>
             </div>
 
             <div className='add-to-cart'>
