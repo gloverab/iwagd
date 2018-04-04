@@ -42,7 +42,12 @@ class Footer extends Component {
   hideAlbum() {
     this.setState({
       albumRise: false,
-      showAlbum: false,
+    }, () => {
+      setTimeout(() => {
+        this.setState({
+          showAlbum: false
+        })
+      }, 200)
     })
   }
 

@@ -521,21 +521,23 @@ button:hover {
   bottom: 100px;
   background-color: white;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: .3s ease all;
+  transition: .2s ease all;
+  text-align: center;
 }
 
 .hover-album.rise {
   height: 200px;
-  transition: .3s ease all;
-}
-
-.hover-album.spread {
-
 }
 
 .hover-album > img {
-  width: 100%;
+  width: 0;
   height: 100%;
+  transition: .3s ease all;
+  transition-delay: .1s;
+}
+
+.hover-album.rise img {
+  width: 100%;
 }
 
 .album-wrapper {
