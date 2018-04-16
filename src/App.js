@@ -16,6 +16,7 @@ import soundOff from './images/noun_1583083_cc.svg';
 import arrow from './images/arrow.svg';
 import intro from './audio/glitchy-vid-aud.mp3'
 import MailchimpSubscribe from "react-mailchimp-subscribe";
+import Mailchimp from 'react-mailchimp-form';
 import './App.css';
 
 class App extends Component {
@@ -38,6 +39,7 @@ class App extends Component {
     this.handlePageSwitch = this.handlePageSwitch.bind(this)
     this.handleEmailInput = this.handleEmailInput.bind(this)
     this.handleEmailSubmit = this.handleEmailSubmit.bind(this)
+    this.onEmailSuccess = this.onEmailSuccess.bind(this)
   }
 
   componentDidMount() {
@@ -83,6 +85,13 @@ class App extends Component {
     this.setState({
       submittedEmail: '',
       emailOut
+    })
+  }
+
+  onEmailSuccess() {
+    this.setState({
+      emailOut: false,
+      emailSuccess: true
     })
   }
 
@@ -187,7 +196,19 @@ class App extends Component {
             <div className={`bottom ${this.state.emailOut ? 'grow' : ''}`}>
               <div className={`mobile-email-wrapper ${this.state.emailOut ? 'grow' : ''}`}>
                 {!this.state.emailOut && <button className='btn big mobile' id='mobile-email-btn' onClick={this.onEmailClick}>DON'T LOSE TOUCH</button>}
-                {this.state.emailOut && SimpleForm()}
+                {this.state.emailOut &&
+                  <Mailchimp
+                    action='https://birdlabrecords.us17.list-manage.com/subscribe/post?u=5f414c713408a33c6eddaac3f&id=f9ce0dc3ce'
+                    fields={[
+                      {
+                        name: 'EMAIL',
+                        placeholder: 'THIS IS WEIRD',
+                        type: 'email',
+                        required: true
+                      }
+                    ]}
+                  />
+                }
               </div>
               {!this.state.emailOut && socialLinks()}
             </div>
@@ -244,6 +265,8 @@ class App extends Component {
           screenSize={this.state.screenSize}
           currentPage={this.state.currentPage}
           handlePageSwitch={this.handlePageSwitch}
+          onEmailSuccess={this.onEmailSuccess}
+          emailSuccess={this.state.emailSuccess}
         />}
       </div>
     );

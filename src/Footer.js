@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import arrow from './images/arrow.svg'
 import albumCover from './images/IWAGD-Album-1.jpg'
 import MailchimpSubscribe from "react-mailchimp-subscribe";
+import Mailchimp from './Mailchimp';
 
 class Footer extends Component {
   constructor(props) {
@@ -88,13 +89,24 @@ class Footer extends Component {
                   className='ib footer-nav email-signup'
                   onClick={this.props.onEmailClick}
                 >
-                  DON'T LOSE TOUCH
+                  {this.props.emailSuccess ? 'THANKS. TALK SOON.' : "DON'T LOSE TOUCH"}
                 </h4>}
-                <form className={`ib email-field-wrapper ${this.props.emailOut ? 'expanded' : 'hidden'}`}>
+                <div className={`ib email-field-wrapper ${this.props.emailOut ? 'expanded' : 'hidden'}`}>
                   <div className='form-wrapper'>
-                    {SimpleForm()}
+                    {<Mailchimp
+                      action='https://birdlabrecords.us17.list-manage.com/subscribe/post?u=5f414c713408a33c6eddaac3f&id=f9ce0dc3ce'
+                      fields={[
+                        {
+                          name: 'EMAIL',
+                          placeholder: 'THIS IS WEIRD',
+                          type: 'email',
+                          required: true
+                        }
+                      ]}
+                      onEmailSuccess={this.props.onEmailSuccess}
+                    />}
                   </div>
-                </form>
+                </div>
 
                 {/*<form className='ib' onSubmit={this.handleEmailSubmit}>
                   <input
