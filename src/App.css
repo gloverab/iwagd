@@ -749,14 +749,14 @@ button:hover {
   width: 100%;
 }
 
-.mobile-email-wrapper.grow > div {
+.mobile-email-wrapper.grow > form {
   width: 80%;
   display: block;
   position: relative;
   margin: 0 auto;
 }
 
-.mobile-email-wrapper.grow > div > input {
+.mobile-email-wrapper.grow > form > input {
   margin-top: 50px;
   width: 100%;
   font-size: 16px;
@@ -767,11 +767,11 @@ button:hover {
   border-bottom: 1px solid black;
 }
 
-.mobile-email-wrapper.grow > div > input:focus {
+.mobile-email-wrapper.grow > form > input:focus {
   outline: none;
 }
 
-.mobile-email-wrapper.grow > div > button {
+.mobile-email-wrapper.grow > form > button {
   margin-top: 40px;
   -webkit-appearance: none;
   box-shadow: none;
@@ -784,7 +784,7 @@ button:hover {
   width: 100%;
 }
 
-.mobile-email-wrapper.grow > div > button:focus {
+.mobile-email-wrapper.grow > form > button:focus {
   outline: none;
 }
 

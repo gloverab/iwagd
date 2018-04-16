@@ -16,7 +16,7 @@ import soundOff from './images/noun_1583083_cc.svg';
 import arrow from './images/arrow.svg';
 import intro from './audio/glitchy-vid-aud.mp3'
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-import Mailchimp from 'react-mailchimp-form';
+import Mailchimp from './Mailchimp';
 import './App.css';
 
 class App extends Component {
@@ -195,18 +195,21 @@ class App extends Component {
           <div className='mobile-center-wrap'>
             <div className={`bottom ${this.state.emailOut ? 'grow' : ''}`}>
               <div className={`mobile-email-wrapper ${this.state.emailOut ? 'grow' : ''}`}>
-                {!this.state.emailOut && <button className='btn big mobile' id='mobile-email-btn' onClick={this.onEmailClick}>DON'T LOSE TOUCH</button>}
+                {!this.state.emailOut && <button className='btn big mobile' id='mobile-email-btn' onClick={this.onEmailClick}>
+                  {this.state.emailSuccess ? 'THANK YOU. TALK SOON' : "DON'T LOSE TOUCH"}
+                </button>}
                 {this.state.emailOut &&
                   <Mailchimp
                     action='https://birdlabrecords.us17.list-manage.com/subscribe/post?u=5f414c713408a33c6eddaac3f&id=f9ce0dc3ce'
                     fields={[
                       {
                         name: 'EMAIL',
-                        placeholder: 'THIS IS WEIRD',
+                        placeholder: 'YOUR EMAIL',
                         type: 'email',
                         required: true
                       }
                     ]}
+                    onEmailSuccess={this.onEmailSuccess}
                   />
                 }
               </div>

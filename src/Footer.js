@@ -98,7 +98,7 @@ class Footer extends Component {
                       fields={[
                         {
                           name: 'EMAIL',
-                          placeholder: 'THIS IS WEIRD',
+                          placeholder: 'YOUR EMAIL',
                           type: 'email',
                           required: true
                         }
