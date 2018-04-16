@@ -17,8 +17,8 @@ class Mailchimp extends React.Component {
     })
   }
 
-  handleSubmit(evt) {
-    evt.preventDefault();
+  handleSubmit(e) {
+    e.preventDefault();
     const { fields, action } = this.props;
     const values = fields.map(field => {
       return `${field.name}=${encodeURIComponent(this.state[field.name])}`;
@@ -27,7 +27,6 @@ class Mailchimp extends React.Component {
     const url = path.replace('/post?', '/post-json?');
     const regex = /^([\w_\.\-\+])+\@([\w\-]+\.)+([\w]{2,10})+$/;
     const email = this.state['EMAIL'];
-    debugger
     (!regex.test(email)) ? this.setState({ status: "empty" }) : this.sendData(url);
   };
 
