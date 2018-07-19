@@ -184,11 +184,10 @@ class App extends Component {
         {!isMobile &&
           <div className="video-background">
             <div className="video-foreground">
-              <iframe id='iframe-vid'
-                src="https://www.youtube.com/embed/7D8nz15PlR8?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=7D8nz15PlR8" />
+              <iframe id='iframe-vid' allow="autoplay; encrypted-media"
+                src="https://www.youtube.com/embed/7D8nz15PlR8?controls=0&showinfo=0&rel=0&amp;autoplay=1" />
             </div>
-          </div>}
-
+          </div>}=
         {(this.state.emailOut || this.state.submittedEmail) && <div className='hit-box' onClick={this.onEmailClick} />}
         {isMobile && <h2 data-text='IT WAS A GOOD DREAM' className={`mobile-header ${this.state.mobileRaised ? '' : 'out-of-frame'} example-one`}>IT WAS A GOOD DREAM</h2>}
         {isMobile &&

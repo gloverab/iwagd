@@ -144,7 +144,6 @@ class PurchaseWrapper extends Component {
             total={total}
           />
         }
-        }
       </div>
     )
   }
