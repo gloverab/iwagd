@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 import PurchaseWrapper from './PurchaseWrapper';
-import Footer from './Footer';
+import Navbar from './Navbar';
 import { Tooltip } from 'react-tippy';
 import albumCover from './images/album-art-350px.jpg'
 import vinyl from './images/vinyl.png'
@@ -259,7 +259,7 @@ class App extends Component {
           <div className='social-wrapper-wrapper'>
             {socialLinks()}
           </div>}
-        {!isMobile && <Footer
+        {!isMobile && <Navbar
           images={this.state.images}
           onEmailClick={this.onEmailClick}
           emailOut={this.state.emailOut}

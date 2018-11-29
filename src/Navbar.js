@@ -4,7 +4,7 @@ import albumCover from './images/IWAGD-Album-1.jpg'
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import Mailchimp from './Mailchimp';
 
-class Footer extends Component {
+class Navbar extends Component {
   constructor(props) {
     super(props)
 
@@ -72,12 +72,16 @@ class Footer extends Component {
     const SimpleForm = () => <MailchimpSubscribe url={url} />
 
     return (
-      <div className='footer'>
+      <div className='navbar'>
         {this.state.showAlbum && <div className={`hover-album ${this.state.albumRise ? 'rise' : ''} ${this.state.albumSpread ? 'spread' : ''}`}>
           {this.props.images[0]}
         </div>}
         {(this.props.emailOut || this.props.submittedEmail) && <div className='hit-box' onClick={this.props.onEmailClick} />}
-        <h2 className={`title ib ${this.props.emailOut ? 'compress' : ''}`}>{screenSize > 1000 && !this.props.submittedEmail ? 'IT WAS A GOOD DREAM' : 'IWAGD'}</h2>
+        <h2
+        className={`title ib glitch ${this.props.emailOut ? 'compress' : ''}`}
+        data-text={screenSize > 1000 && !this.props.submittedEmail ? 'IT WAS A GOOD DREAM' : 'IWAGD'}
+        >
+        {screenSize > 1000 && !this.props.submittedEmail ? 'IT WAS A GOOD DREAM' : 'IWAGD'}</h2>
 
         <div className='nav ib'>
           {this.props.submittedEmail ?
@@ -86,8 +90,9 @@ class Footer extends Component {
             <div className='nav-pill ib'>
               {!this.props.emailOut &&
                 <h4
-                  className='ib footer-nav email-signup'
+                  className='ib navbar-nav email-signup glitch'
                   onClick={this.props.onEmailClick}
+                  data-text="don't lose touch"
                 >
                   {this.props.emailSuccess ? 'THANKS. TALK SOON.' : "DON'T LOSE TOUCH"}
                 </h4>}
@@ -128,13 +133,14 @@ class Footer extends Component {
             </div>}
           <div className='nav-pill ib'>
             {this.props.currentPage === 'preorder' ?
-              <h4 className='footer-nav' id='landing' onClick={this.props.handlePageSwitch}>BACK TO HOME</h4>
+              <h4 className='navbar-nav' id='landing' onClick={this.props.handlePageSwitch}>BACK TO HOME</h4>
               :
               <h4
-                className='footer-nav'
+                className='navbar-nav glitch'
                 id='preorder'
                 onMouseEnter={this.showAlbum}
                 onMouseLeave={this.hideAlbum}
+                data-text='PREORDER VINYL'
                 onClick={this.props.handlePageSwitch}>PREORDER VINYL</h4>}
           </div>
         </div>
@@ -143,4 +149,4 @@ class Footer extends Component {
   }
 }
 
-export default Footer
+export default Navbar
