@@ -91,13 +91,14 @@ class Navbar extends Component {
             {this.props.images[0]}
           </div>}
           {(this.props.emailOut || this.props.submittedEmail) && <div className='hit-box' onClick={this.props.onEmailClick} />}
+          <Link to='/'>
           <h2
             onClick={this.props.backToHome}
             className={`title ib glitch ${this.props.emailOut ? 'compress' : ''}`}
             data-text={screenSize > 1000 && !this.props.submittedEmail ? 'IT WAS A GOOD DREAM' : 'IWAGD'}
           >
           {screenSize > 1000 && !this.props.submittedEmail ? 'IT WAS A GOOD DREAM' : 'IWAGD'}</h2>
-
+          </Link>
           <div className='nav ib'>
             {false && <Fragment>
               {this.props.submittedEmail ?
