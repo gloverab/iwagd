@@ -1,8 +1,8 @@
 {
-  "main.css": "static/css/main.56f0ad4d.css",
-  "main.css.map": "static/css/main.56f0ad4d.css.map",
-  "main.js": "static/js/main.82d11e7c.js",
-  "main.js.map": "static/js/main.82d11e7c.js.map",
+  "main.css": "static/css/main.11ec8aec.css",
+  "main.css.map": "static/css/main.11ec8aec.css.map",
+  "main.js": "static/js/main.977b41b7.js",
+  "main.js.map": "static/js/main.977b41b7.js.map",
   "static/media/3-layers.svg": "static/media/3-layers.a7080caf.svg",
   "static/media/Blue-Hair.png": "static/media/Blue-Hair.8e0b593f.png",
   "static/media/IWAGD-Album-1.jpg": "static/media/IWAGD-Album-1.dfc7840d.jpg",
@@ -10,10 +10,13 @@
   "static/media/arrow.svg": "static/media/arrow.9e72859d.svg",
   "static/media/bandcamp-logo.svg": "static/media/bandcamp-logo.3b0865d4.svg",
   "static/media/glitchy-vid-aud.mp3": "static/media/glitchy-vid-aud.fb3626d1.mp3",
+  "static/media/iwagd-about-photo.jpg": "static/media/iwagd-about-photo.9f9227b6.jpg",
+  "static/media/iwagd-contact-photo.jpg": "static/media/iwagd-contact-photo.9ee808b1.jpg",
   "static/media/noun_1583080_cc.svg": "static/media/noun_1583080_cc.d87098aa.svg",
   "static/media/noun_1583083_cc.svg": "static/media/noun_1583083_cc.ffc8b5b9.svg",
   "static/media/shape.svg": "static/media/shape.874f78e2.svg",
   "static/media/spotify-icon-rgb-white.svg": "static/media/spotify-icon-rgb-white.a428502c.svg",
   "static/media/vinyl.png": "static/media/vinyl.e3662b39.png",
-  "static/media/x.svg": "static/media/x.b1c1e2bd.svg"
+  "static/media/x.svg": "static/media/x.b1c1e2bd.svg",
+  "static/media/ylalaas-shot.png": "static/media/ylalaas-shot.e742c78d.png"
 }
