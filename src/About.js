@@ -11,11 +11,11 @@ export default class About extends React.Component {
           </p>
 
           <p>
-            Recorded in a centuries-old Masonic Temple-turned recording studio in Northeastern Massachusetts, the duo’s self-titled debut is saturated with a brightly haunted atmosphere. The historical live room graciously left its fingerprints all over the recordings - gorgeously architected 50-foot tall ceilings end where effect pedals begin. Drums shake unreachable shelves and cymbals crash in their wake, bringing to life the resident dust in long-forgotten hallways. Unplanned creaks and rattles invite the listener to explore each deeply layered sound expertly captured by producer James Bridges (Caspian, American Echoes, Mike Gordon).
+            The duo released their mysterious teaser single, “Forgetting How To Speak” in 2018 before receding away to prepare the remainder of the album. Released May 24th via Dunk! Records, the 5-track LP is “Help Me to Recollect” was preceded by the lead single “You Left a Letter and a Song” and quickly won the heart of post-rock fans worldwide.
           </p>
           
           <p>
-            With their debut record due out in Summer 2018, IT WAS A GOOD DREAM will spend the spring completing a new live performance complimented by generative visuals and rotating accompaniment. In the meantime, the album's first track and teaser single, "Forgetting How To Speak" is currently streaming everywhere.
+            Recorded in a centuries-old Masonic Temple-turned recording studio in Northeastern Massachusetts, the duo’s debut LP is saturated with a brightly haunted atmosphere. The historical live room graciously left its fingerprints all over the recordings - gorgeously architected 50-foot tall ceilings end where effect pedals begin. Drums shake unreachable shelves and cymbals crash in their wake, bringing to life the resident dust in long-forgotten hallways. Unplanned creaks and rattles invite the listener to explore each deeply layered sound expertly captured by producer James Bridges (Caspian, American Echoes, Mike Gordon).
           </p>
         </div>
         <div className='about-column'>
