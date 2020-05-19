@@ -1104,3 +1104,96 @@ button:hover {
 @media all and (max-width: 500px) {
 .vid-info .acronym { display: none; }
 }
+
+
+/* PRESS PAGE */
+
+.main-container-plain {
+  background-color: RGBa(255,255,255, .95);
+  
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+}
+
+#press {
+  padding-bottom: 100px;
+  position: relative;
+  line-height: 1.6;
+  overflow: scroll;
+}
+
+#press p {
+  font-size: 13px;
+}
+
+.column-left {
+  width: 47%;
+  max-width: 450px;
+  float: left;
+}
+
+.column-right {
+  margin-left: calc(47% + 50px);
+  width: 47%;
+  max-width: 450px;
+}
+
+.press-img {
+  width: 100%;
+  max-width: 450px;
+}
+
+.spaced {
+  padding-top: 15px;
+}
+
+.bold {
+  font-weight: bolder !important;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.line {
+  /* position: relative; */
+  display: inline-block;
+  height: 2;
+  background-color: black;
+  width: 90%;
+}
+
+.clear {
+  clear: both
+}
+
+.videos-image {
+  display: block;
+  width: 300px;
+}
+
+@media only screen and (max-width: 700px) {
+
+  .column-left {
+    width: 100%;
+    max-width: none;
+    float: none;
+  }
+  
+  .column-right {
+    width: 100%;
+    margin-left: 0;
+    max-width: none;
+  }
+  
+  .press-img {
+    width: 100%;
+    max-width: none;
+  }
+}

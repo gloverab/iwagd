@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 import PurchaseWrapper from './PurchaseWrapper';
 import Navbar from './Navbar';
@@ -21,6 +21,7 @@ import Mailchimp from './Mailchimp';
 import './App.css';
 import About from './About'
 import Contact from './Contact'
+import Press from './Press'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 class App extends Component {
@@ -70,6 +71,19 @@ class App extends Component {
     setTimeout(() => {
       this.setState({ mobileRaised: true })
     }, 100)
+    const page = window.location.href.split('#')[1].replace('/', '')
+    if (page) {
+      // debugger
+      const navObject = {
+        currentTarget: {
+          dataset: {
+            navtop: true
+          },
+          id: page
+        }
+      }
+      this.handlePageSwitch(navObject)
+    }
   }
 
   setScreenSize(e) {
@@ -177,6 +191,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.currentPage)
     const url = "https://birdlabrecords.us17.list-manage.com/subscribe/post?u=5f414c713408a33c6eddaac3f&id=f9ce0dc3ce"
     const SimpleForm = () => <MailchimpSubscribe url={url}/>
     const socialLinks = () =>
@@ -197,6 +212,8 @@ class App extends Component {
     const navTop = this.props.location.pathname === '/contact' || this.props.location.pathname === '/about'
 
     return (
+      <Fragment>
+      {this.state.currentPage === 'epk' ? <Route exact path='/epk' component={Press} /> :
       <div className={`App ${isMobile ? 'locked' : ''}`} id='app'>
         <div className={`image-overlay-wrapper-wrapper ${!this.state.overlayImage ? 'hidden' : ''}`}>
           {/* !isMobile && <div className={`image-overlay-wrapper ${!this.state.overlayActivated ? 'deactivated' : 'activated'}`}>
@@ -292,7 +309,7 @@ class App extends Component {
           <div className='social-wrapper-wrapper'>
             {socialLinks()}
           </div>}
-        {!isMobile &&
+        {!isMobile && this.state.currentPage !== 'epk' &&
           <Navbar
             backToHome={this.backToHome}
             images={this.state.images}
@@ -314,7 +331,9 @@ class App extends Component {
           </div>
         </div>
       </div>
-    );
+      }
+      </Fragment>
+      );
   }
 }
 

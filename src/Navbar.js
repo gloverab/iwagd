@@ -84,6 +84,8 @@ class Navbar extends Component {
     const { screenSize } = this.props
     const url = "https://birdlabrecords.us17.list-manage.com/subscribe/post?u=5f414c713408a33c6eddaac3f&id=f9ce0dc3ce"
     const SimpleForm = () => <MailchimpSubscribe url={url} />
+    
+    const buyText = 'BUY VINYL TODAY'
 
     return (
         <div className={`navbar ${this.props.navTop ? 'nav-top' : ''}`}>
@@ -170,7 +172,7 @@ class Navbar extends Component {
                   onClick={this.props.handlePageSwitch}>CONTACT</h4>
               </div>
             </Link>
-            <a className='nav-pill ib' href='https://itwasagooddream.bandcamp.com/releases' target='blank'>
+            <a className='nav-pill ib' href='https://itwasagooddream.bandcamp.com/merch' target='blank'>
               {this.props.currentPage === 'preorder' ?
                 <h4 className='navbar-nav' id='landing' onClick={this.props.handlePageSwitch}>BACK TO HOME</h4>
                 :
@@ -179,8 +181,8 @@ class Navbar extends Component {
                   id='preorder'
                   onMouseEnter={this.showAlbum}
                   onMouseLeave={this.hideAlbum}
-                  data-text='PREORDER VINYL'
-                  >PREORDER VINYL</h4>}
+                  data-text={buyText}
+                  >{buyText}→</h4>}
             </a>
           </div>
         </div>
