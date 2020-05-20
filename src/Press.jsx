@@ -1,7 +1,7 @@
 import React from 'react'
 import ylalaas from './images/ylalaas-shot.png'
 import albumpremiere from './images/album-premiere-img.png'
-import fmrlive from './images/album-premiere-img.png'
+import fmrlive from './images/fmr-live.jpg'
 import pressphoto from './images/iwagd-about-photo.jpg'
 
 export default function Press() {

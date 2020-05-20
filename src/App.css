@@ -213,9 +213,16 @@ body > #root > div {
 .video-feature-link-wrapper {
   position: absolute;
   left: 40px;
+  height: 175px;
+  width: 300px;
+}
+
+.video-feature-link-wrapper-1 {
   bottom: 150px;
-  height: 155px;
-  width: 250px;
+}
+
+.video-feature-link-wrapper-2 {
+  bottom: 350px;
 }
 
 .video-feature-link-wrapper p {
@@ -234,10 +241,11 @@ body > #root > div {
 .video-feature-link {
   position: absolute;
   top: 0;
-  height: 130px;
+  height: 150px;
   padding: 5px;
   background-color: #fff;
   transition: .2s ease all;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.8)
 }
 
 .video-feature-link:hover {
@@ -247,6 +255,7 @@ body > #root > div {
 .video-feature-link img {
   height: 100%;
   width: auto;
+  max-width: 230px;
 }
 
 .image-overlay-wrapper.activated {

@@ -10,6 +10,7 @@ import spotifyIcon from './images/spotify-icon-rgb-white.svg';
 import appleIcon from './images/shape.svg';
 import bandcampIcon from './images/bandcamp-logo.svg';
 import ylalaas from './images/ylalaas-shot.png';
+import descendpremiere from './images/descend-premiere.png';
 import instaIcon from './images/3-layers.svg';
 import soundOn from './images/noun_1583080_cc.svg';
 import soundOff from './images/noun_1583083_cc.svg';
@@ -191,7 +192,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.currentPage)
     const url = "https://birdlabrecords.us17.list-manage.com/subscribe/post?u=5f414c713408a33c6eddaac3f&id=f9ce0dc3ce"
     const SimpleForm = () => <MailchimpSubscribe url={url}/>
     const socialLinks = () =>
@@ -231,12 +231,19 @@ class App extends Component {
             </div>
         </div>*/}
 
-        <a className='video-feature-link-wrapper' href='http://www.heavyblogisheavy.com/2019/04/26/exclusive-premiere-its-time-to-get-melancholic-with-it-was-a-good-dream/?fbclid=IwAR3SrmvuKrD42DrwPyxZka5oN498aD1lKmqeG1cm8bPH2mSecdBeh10rd8Q' target='blank'>
+        {!isMobile && <a className='video-feature-link-wrapper video-feature-link-wrapper-2' href='https://www.heavyblogisheavy.com/2020/03/27/exclusive-premiere-and-then-some-it-was-a-good-dream-invite-us-to-descend-suppress-sustain/' target='blank'>
+          <div className='video-feature-link'>
+            <img src={descendpremiere} alt='youtube preview' />
+          </div>
+          <p>HEAR "DESCEND / SUSTAIN / SUPPRESS" →</p>
+        </a>}
+
+        {!isMobile && <a className='video-feature-link-wrapper video-feature-link-wrapper-1' href='https://www.youtube.com/watch?v=Md4pQOm4J5M' target='blank'>
           <div className='video-feature-link'>
             <img src={ylalaas} alt='youtube preview' />
           </div>
-          <p>WATCH "YOU LEFT A LETTER AND A SONG"</p>
-        </a>
+          <p>WATCH "YOU LEFT A LETTER AND A SONG" →</p>
+        </a>}
 
         {(this.state.emailOut || this.state.submittedEmail) && <div className='hit-box' onClick={this.onEmailClick} />}
         {isMobile && <h2 data-text='IT WAS A GOOD DREAM' className={`mobile-header ${this.state.mobileRaised ? '' : 'out-of-frame'} example-one`}>IT WAS A GOOD DREAM</h2>}
