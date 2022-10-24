@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "gh-pages": "^1.1.0",
+    "gh-pages": "^4.0.0",
     "jsonp": "^0.2.1",
     "paypal-checkout": "^4.0.178",
     "prop-types": "^15.6.1",
